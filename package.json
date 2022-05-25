@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "concurrently -k \"tsc -w\" \"nodemon dist/index.js\"",
+    "dev": "npm run build && concurrently -k \"tsc -w\" \"nodemon dist/index.js\"",
     "build": "tsc",
     "test": "npm run build && jest",
     "deploy": "gcloud run deploy"
@@ -25,6 +25,7 @@
     "prettier": "^2.6.2",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.3",
+    "ts-node": "^10.8.0",
     "typescript": "^4.6.4"
   },
   "dependencies": {
