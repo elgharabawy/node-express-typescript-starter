@@ -1,7 +1,7 @@
-import { Request } from "express";
+import { Request } from 'express'
 
-import { ServiceAPIResponse } from "../../types/serviceResponse";
-import { Article } from "../../types/articles";
+import { ServiceAPIResponse } from '../../types/serviceResponse'
+import { Article } from '../../types/articles'
 
 const getAll = async (req: Request): Promise<ServiceAPIResponse<Article[]>> => {
   /* fetch data here */
@@ -9,12 +9,12 @@ const getAll = async (req: Request): Promise<ServiceAPIResponse<Article[]>> => {
     statusCode: 200,
     body: [
       {
-        title: "Article title",
+        title: 'Article title',
       },
     ],
     headers: req.headers,
-  };
-};
+  }
+}
 
 const getById = async (req: Request): Promise<ServiceAPIResponse<Article>> => {
   /* fetch data here */
@@ -22,10 +22,10 @@ const getById = async (req: Request): Promise<ServiceAPIResponse<Article>> => {
   return {
     statusCode: 200,
     body: {
-      title: "Article title",
+      title: 'Article title',
     },
     headers: req.headers,
-  };
-};
+  }
+}
 
-export { getAll, getById };
+export { getAll, getById }

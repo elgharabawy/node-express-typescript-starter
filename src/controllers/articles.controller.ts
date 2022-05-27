@@ -1,17 +1,21 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from 'express'
 
-import * as articlesService from "../services/articles.service";
+import * as articlesService from '../services/articles.service'
 
 const getAll = async (req: Request, res: Response, next: NextFunction) => {
-  const data = await articlesService.getAll(req);
+  const data = await articlesService.getAll(req)
   
-  res.status(data.statusCode).json(data.body);
-};
+  res.status(data.statusCode).json(data.body)
+
+  next()
+}
 
 const getById = async (req: Request, res: Response, next: NextFunction) => {
-  const data = await articlesService.getById(req);
+  const data = await articlesService.getById(req)
 
-  res.status(data.statusCode).json(data.body);
-};
+  res.status(data.statusCode).json(data.body)
 
-export { getAll, getById };
+  next()
+}
+
+export { getAll, getById }
