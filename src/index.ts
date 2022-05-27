@@ -4,7 +4,7 @@ import helmet from "helmet";
 
 // import routes
 
-import cmsContentItemRouter from "./routes/cmsContentItem.route";
+import articlesRouter from "./routers/articles.router";
 
 const PORT = process.env.PORT || 8080;
 
@@ -20,7 +20,7 @@ app.get("/", (req: Request, res: Response) => {
 
 // implement routes
 
-app.use("/cms-content-item", cmsContentItemRouter);
+app.use("/articles", articlesRouter);
 
 const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

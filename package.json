@@ -1,5 +1,5 @@
 {
-  "name": "gcp-kwh-node-api-app",
+  "name": "node-express-typescript-starter",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -29,7 +29,6 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "axios": "^0.27.2",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "helmet": "^5.1.0"
