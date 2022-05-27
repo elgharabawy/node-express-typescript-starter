@@ -1,15 +1,14 @@
 {
   "name": "node-express-typescript-starter",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "A starter Node.js API server using Express, with Docker, Jest, and ESLint. All in Typescript",
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "npm run build && concurrently -k \"tsc -w\" \"nodemon dist/index.js\"",
-    "build": "tsc",
-    "lint": "eslint src/**/*.ts --fix",
-    "test": "npm run build && jest",
-    "deploy": "gcloud run deploy"
+    "build": "npm run lint && tsc",
+    "lint": "eslint **/*.ts --fix",
+    "test": "npm run build && jest"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +25,6 @@
     "eslint": "^8.16.0",
     "jest": "^28.1.0",
     "nodemon": "^2.0.16",
-    "prettier": "^2.6.2",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.3",
     "ts-node": "^10.8.0",

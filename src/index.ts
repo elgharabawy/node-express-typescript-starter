@@ -1,29 +1,27 @@
-import express, { Express, Request, Response } from "express";
-import cors from "cors";
-import helmet from "helmet";
+import express, { Express, Request, Response } from 'express'
+import cors from 'cors'
+import helmet from 'helmet'
 
-// import routes
+import articlesRouter from './routers/articles.router'
 
-import articlesRouter from "./routers/articles.router";
+const PORT = process.env.PORT || 8080
 
-const PORT = process.env.PORT || 8080;
+const app: Express = express()
 
-const app: Express = express();
+app.use(helmet())
+app.use(cors())
+app.use(express.json())
 
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).send('Welcome')
+})
 
-app.get("/", (req: Request, res: Response) => {
-  res.status(200).send("Welcome");
-});
+// Articles routes
 
-// implement routes
-
-app.use("/articles", articlesRouter);
+app.use('/articles', articlesRouter)
 
 const server = app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+  console.log(`Server running on port ${PORT}`)
+})
 
-export { app as default, server };
+export { app as default, server }

@@ -4,4 +4,4 @@ interface ServiceAPIResponse<T> {
   headers?: Object;
 }
 
-export { ServiceAPIResponse };
+export { ServiceAPIResponse }

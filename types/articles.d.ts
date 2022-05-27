@@ -1,5 +1,5 @@
 interface Article {
-  title: string;
+  title?: string;
 }
 
-export { Article };
+export { Article }
