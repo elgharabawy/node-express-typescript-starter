@@ -1,0 +1,10 @@
+import express from 'express'
+
+import * as {{camelCase name}}Controller from '../controllers/{{dashcase name}}.controller'
+
+const router = express.Router()
+
+/* GET {{lowerCase name}} */
+router.get('/', {{camelCase name}}Controller.getAll)
+
+export { router as default }

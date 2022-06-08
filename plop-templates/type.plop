@@ -1,0 +1,5 @@
+interface {{camelCase name}} {
+  title?: string;
+}
+
+export { {{camelCase name}} }

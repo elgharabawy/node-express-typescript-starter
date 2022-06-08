@@ -1,18 +1,17 @@
 import { Request } from 'express'
 
-import { ServiceAPIResponse } from '../../types/serviceResponse'
+import { ServiceAPIResponse } from '../../types/service-response'
 import { Article } from '../../types/articles'
 
-const getAll = async (req: Request): Promise<ServiceAPIResponse<Article[]>> => {
+const getAll = async (): Promise<ServiceAPIResponse<Article[]>> => {
   /* fetch data here */
   return {
     statusCode: 200,
     body: [
       {
         title: 'Article title',
-      },
-    ],
-    headers: req.headers,
+      }
+    ]
   }
 }
 
@@ -22,9 +21,8 @@ const getById = async (req: Request): Promise<ServiceAPIResponse<Article>> => {
   return {
     statusCode: 200,
     body: {
-      title: 'Article title',
-    },
-    headers: req.headers,
+      title: `Article title ${req.params?.id}`,
+    }
   }
 }
 

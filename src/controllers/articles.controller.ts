@@ -1,21 +1,21 @@
-import { Request, Response, NextFunction } from 'express'
+import { Request, Response } from 'express'
 
 import * as articlesService from '../services/articles.service'
 
-const getAll = async (req: Request, res: Response, next: NextFunction) => {
-  const data = await articlesService.getAll(req)
-  
-  res.status(data.statusCode).json(data.body)
+const getAll = async (req: Request, res: Response) => {
+  try {
+    const data = await articlesService.getAll()
 
-  next()
+    res.status(data.statusCode).send(data.body)
+  } catch (e: any) {
+    res.status(500).send(e.message)
+  }
 }
 
-const getById = async (req: Request, res: Response, next: NextFunction) => {
+const getById = async (req: Request, res: Response) => {
   const data = await articlesService.getById(req)
 
   res.status(data.statusCode).json(data.body)
-
-  next()
 }
 
 export { getAll, getById }
