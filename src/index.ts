@@ -13,8 +13,12 @@ const ENV = process.env.NODE_ENV || 'production'
 const app: Express = express()
 
 app.use(helmet())
+
 app.use(cors())
+
 app.use(express.json())
+
+app.use(middleware.httpLogger)
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).send('Welcome')
@@ -24,9 +28,10 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/articles', articlesRouter)
 
-// Middleware
+// Error hanlding middleware
 
 app.use(middleware.errorHandler)
+
 app.use(middleware.notFoundHandler)
 
 const server = app.listen(PORT, () => {
