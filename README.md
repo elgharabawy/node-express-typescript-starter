@@ -25,10 +25,9 @@ npm run dev
 ```
 - Using postman, curl, or your browser
 ```
-Visit: 
-http://localhost:8080
-http://localhost:8080/articles
-http://localhost:8080/articles/test
+GET http://localhost:8080
+GET http://localhost:8080/articles
+GET http://localhost:8080/articles/test
 ```
 - To use ESLint
 ```
@@ -38,6 +37,16 @@ npm run lint
 ```
 npm test
 ```
+## ENV Variables
+The project uses [dotenv](https://github.com/motdotla/dotenv) to parse environment variables. To add env variables to your project, simply, create a `.env` file in the root folder of the project. You can then reference it using `process.env.VAR_NAME`. For example, to change Node.js mode, simply add `NODE_ENV=production` or `NODE_ENV=development` to your `.env` file to change Node.js mode to production or development accordingly.
+
+Remeber: it's not a good idea to push .env files to your repo!
+## Logging
+This project uses [Winston](https://github.com/winstonjs/winston) and [Morgan](https://github.com/expressjs/morgan) for logging. Winston is exported as a logger and can be used to log custom messages on demand. Also, it can be extended to push logs to files, external database, or any logging service.
+
+Morgan is used as an http logger middleware for express and the logs are routed through Winston, so everything is nicely bundled in one log stream.
+
+All of these logs are written to console during development. Feel free to add production-specific loggers as and when needed.
 ## Project structure
 ```
 node-express-typescript-starter
@@ -48,6 +57,7 @@ node-express-typescript-starter
 │     └─ build-test.yml
 ├─ .gitignore
 ├─ .nvmrc
+├─ CODE_OF_CONDUCT.md
 ├─ CONTRIBUTING.md
 ├─ Dockerfile
 ├─ LICENSE
